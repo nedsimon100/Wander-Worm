@@ -12,7 +12,7 @@ public class HazardSpawner : MonoBehaviour
     public float ClosestSpawn = 25;
     void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        player = FindFirstObjectByType<PlayerController>();
     }
 
     // Update is called once per frame

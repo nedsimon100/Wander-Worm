@@ -9,7 +9,7 @@ public class Head : MonoBehaviour
     public bool TouchingStandable = false;
     private void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        player = FindFirstObjectByType<PlayerController>();
         Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
     }
     private void OnCollisionEnter2D(Collision2D collision)

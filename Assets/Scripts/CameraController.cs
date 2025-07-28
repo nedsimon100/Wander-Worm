@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     private PlayerController Player;
     void Start()
     {
-        Player = FindObjectOfType<PlayerController>();
+        Player = FindFirstObjectByType<PlayerController>();
     }
 
     // Update is called once per frame

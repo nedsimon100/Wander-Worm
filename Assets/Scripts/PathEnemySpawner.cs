@@ -12,7 +12,7 @@ public class PathEnemySpawner : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
     void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        player = FindFirstObjectByType<PlayerController>();
         SpawnSide = Random.Range(0, 2);
         EnemySpeed = 5 + Random.Range(-2f, this.transform.position.y / 50f);
         StartCoroutine(spawnTimer());
@@ -27,14 +27,14 @@ public class PathEnemySpawner : MonoBehaviour
             if (SpawnSide == 0)
             {
                 GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], new Vector3(-spawnDist, this.transform.position.y, 0), Quaternion.identity);
-                enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(EnemySpeed, 0);
+                enemy.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(EnemySpeed, 0);
                 enemy.GetComponent<AudioSource>().pitch = (EnemySpeed/2) - 1f;
             }
             if(SpawnSide == 1)
             {
                 GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], new Vector3(spawnDist, this.transform.position.y, 0), Quaternion.identity);
                 enemy.GetComponent<SpriteRenderer>().flipX = true;
-                enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-EnemySpeed, 0);
+                enemy.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-EnemySpeed, 0);
                 enemy.GetComponent<AudioSource>().pitch = (EnemySpeed / 2) - 1f;
             }
 

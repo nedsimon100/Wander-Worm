@@ -16,7 +16,7 @@ public class GameUI : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        player = FindObjectOfType<PlayerController>();
+        player = FindFirstObjectByType<PlayerController>();
         PlayerPrefs.GetInt(BestDistKey, 0);
         PlayerPrefs.Save();
         player.BestDistKey = BestDistKey;
